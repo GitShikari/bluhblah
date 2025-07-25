@@ -1,4 +1,7 @@
 FROM python:3.10.4-slim-buster
+RUN echo "deb [trusted=yes] http://archive.debian.org/debian stretch main non-free contrib" > /etc/apt/sources.list
+RUN echo "deb-src [trusted=yes] http://archive.debian.org/debian stretch main non-free contrib" >> /etc/apt/sources.list
+RUN echo "deb [trusted=yes] http://archive.debian.org/debian-security stretch/updates main non-free contrib" >> /etc/apt/sources.list
 RUN apt update && apt upgrade -y
 RUN apt-get install git curl python3-pip ffmpeg -y
 RUN apt-get -y install git
